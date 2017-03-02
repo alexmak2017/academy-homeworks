@@ -2,7 +2,7 @@ print("Hello world")
 a=2017.74
 b="Hello"
 c="World"
-print("{1} {2} - {0}!".format(int(a//1), b, c))
+print("{1} {2} - {0}!".format(int(a), b, c))
 my_list=[25,True,"string",[1,2,3],{"first":1,"second":2}]
 print(my_list[0])
 print(my_list[1])
