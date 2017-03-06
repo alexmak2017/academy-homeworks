@@ -43,4 +43,4 @@ print(m)
 
 
 for i in range(randint(20,40)):
-    print(part_2.type_check(4545))
+    print(part_2.type_check(i))
