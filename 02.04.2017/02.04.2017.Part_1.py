@@ -1,9 +1,10 @@
 from random import randint
 import part_2
-d = {"first_name": "Alexandr",
-    "Last_name": "Filipov",
-    "email": "alex@ukr.net",
-    "age": 27
+d = {
+        "first_name": "Alexandr",
+        "Last_name": "Filipov",
+        "email": "alex@ukr.net",
+        "age": 27
     }
 
 b = []
