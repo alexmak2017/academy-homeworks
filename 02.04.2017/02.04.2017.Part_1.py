@@ -17,15 +17,10 @@ print(b)
 
 c = []
 for j in b:
-    if "n" not in str(j) and "m" not in str(j):
-        c.append(j)
+    if type(j) != str:
+        j = str(j)
+    if "n" not in str(j.lower()) and "m" not in str(j.lower()):
 print(c)
-"""
-for k in b:
-    if "n" in str(k) or "m" in str(k):
-        b.remove(k)
-print(b)
-"""
 
 n = ["ax","bx","cx"]
 n.reverse()
