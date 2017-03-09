@@ -1,8 +1,8 @@
 from random import randint
 import part_2
-d = {"first_name": "Alexandr",
+d = {"first_name": "AlexaNdr",
     "Last_name": "Filipov",
-    "email": "alex@ukr.net",
+    "email": "alex@ukr.Net",
     "age": 27
     }
 
@@ -16,7 +16,9 @@ print(b)
 
 c = []
 for j in b:
-    if "n" not in str(j) and "m" not in str(j):
+    if type(j) != str:
+        j = str(j)
+    if "n" not in str(j.lower()) and "m" not in str(j.lower()):
         c.append(j)
 print(c)
 """
