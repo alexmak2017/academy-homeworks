@@ -1,9 +1,17 @@
 from random import randint
 import part_2
+<<<<<<< HEAD
 d = {"first_name": "AlexaNdr",
     "Last_name": "Filipov",
     "email": "alex@ukr.Net",
     "age": 27
+=======
+d = {
+        "first_name": "Alexandr",
+        "Last_name": "Filipov",
+        "email": "alex@ukr.net",
+        "age": 27
+>>>>>>> 8bfb3266a9ef885a8c6cf3313fd1eb24b0515bb2
     }
 
 b = []
@@ -19,14 +27,11 @@ for j in b:
     if type(j) != str:
         j = str(j)
     if "n" not in str(j.lower()) and "m" not in str(j.lower()):
+<<<<<<< HEAD
         c.append(j)
+=======
+>>>>>>> 8bfb3266a9ef885a8c6cf3313fd1eb24b0515bb2
 print(c)
-"""
-for k in b:
-    if "n" in str(k) or "m" in str(k):
-        b.remove(k)
-print(b)
-"""
 
 n = ["ax","bx","cx"]
 n.reverse()
