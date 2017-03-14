@@ -1,4 +1,3 @@
-
 import logging
 from sys import argv
 from argparse import ArgumentParser
