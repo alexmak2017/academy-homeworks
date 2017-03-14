@@ -1,5 +1,5 @@
-
 import logging
+from sys import argv
 from argparse import ArgumentParser
 from datetime import datetime, timedelta
 from os import path, listdir
@@ -23,7 +23,16 @@ parser = ArgumentParser()
 parser.add_argument('-l', '--level', choices=['debug', 'info', 'warning', 'error', 'critical'],
                     help='Logging level', default='info')
 args = parser.parse_args()
-
+if argv[2] == "info":
+    logging.info("info")
+elif argv[2] == "warning":
+    logging.warning("warning")
+elif argv[2] == "debug":
+    logging.debug("debug")
+elif argv[2] == "error":
+    logging.error("error")
+elif argv[2] == "critical":
+    logging.critical("critical")
 
 
 
