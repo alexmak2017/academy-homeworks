@@ -1,34 +1,47 @@
-
 class Animal:
-    """Some properties of animals"""
-    is_alive = True
-    is_big = "Yes"
-    is_carnivores = True
-    domestic_animal = "Yes"
 
-    def info(self):
-        print("Alive = {}, Big = {}, Carnivores = {} , Domestic animal = {} "
-              .format(self.is_alive, self.is_big, self.is_carnivores, self.domestic_animal))
+    def __init__(self,food_per_day,period):
+        self.food_per_day = food_per_day
+        self.period = period
 
-    def voice(self,name, is_voice):
-        self.name = name
-        self.is_voice = is_voice
-        if is_voice != True:
-            print("{} has no voice".format(name))
-        else:
-            print("{} has voice".format(name))
+    def food_for_period(self):
+        return float(self.food_per_day.split()[0])*int(self.period.split()[0])
 
+class Carnivores(Animal):
+    def eat_meat(self):
+        food_c = "This animal eat meat"
+        return food_c
 
-Cat = Animal()
-Cat.is_carnivores = False
-Cat.is_big = "No"
-Cat.info()
-Cat.voice("Cat","No")
+class Omnivores(Animal):
+    def eat_meat(self):
+        food_o = "This animal eat meat"
+        return food_o
 
-Wolf = Animal()
-Wolf.domestic_animal = "No"
-Wolf.info()
-Wolf.voice("Wolf",True)
+    def eat_plant(self):
+        food_o = "This animal eat plant"
+        return food_o
+
+class Herbivore(Animal):
+    def eat_plant(self):
+        food_h = "This animal eat plant"
+        return food_h
 
 
+def animal_check(name):
+    try:
+        print(name.eat_plant())
+    except AttributeError:
+        print("This animal don't eat plant")
+
+wolf = Carnivores("2.5 kg", "12 days")
+animal_check(wolf)
+print(wolf.food_for_period(),"kg")
+
+cow = Omnivores("5.1 kg", "18 days")
+animal_check(cow)
+print(cow.food_for_period(),"kg")
+
+pig = Herbivore("3 kg","23 days")
+animal_check(pig)
+print(pig.food_for_period(),"kg")
 
