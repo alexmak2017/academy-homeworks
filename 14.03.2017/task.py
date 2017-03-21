@@ -4,6 +4,7 @@ from selenium.common.exceptions import NoSuchElementException
 
 import os
 import time
+import csv
 geckodriver = os.path.join(os.path.dirname(os.path.abspath(__file__)),"geckodriver")
 os.environ["webdriver.mozilla.driver"] = geckodriver
 
