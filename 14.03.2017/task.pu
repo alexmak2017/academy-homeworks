@@ -9,12 +9,12 @@ os.environ["webdriver.mozilla.driver"] = geckodriver
 
 driver = webdriver.Firefox(geckodriver)
 driver.get("http://toster.ru")
+
 #1
 search_input = driver.find_element_by_name("q")
 search_input.send_keys("django"+Keys.RETURN)
+
 #2-6
-
-
 def parser():
     questions = driver.find_elements_by_class_name("question_short")
     for question in questions:
@@ -29,8 +29,6 @@ def parser():
         except NoSuchElementException:
             is_answer = False
         return (title, subscribers, published, is_answer)
-
-
 
 #3-6
 a = True
@@ -50,12 +48,28 @@ for i in range(1,len(count)+1):
 driver.set_window_size(414, 736)
 
 
-
-#5
-
 driver = webdriver.Firefox(geckodriver)
 driver.get("http://toster.ru")
 ques = driver.find_elements_by_class_name("question__title-link")
+
+#write to csv file:
+"""
+for que in ques:
+    new_driver = webdriver.Firefox(geckodriver)
+    link = que.get_attribute("href")
+    new_driver.get(link)
+    views = new_driver.find_element_by_class_name("question__views-count").text
+    tags = new_driver.find_element_by_class_name("tags-list").text
+    content = new_driver.find_element_by_class_name("question__text").text
+
+    with open("example.csv", "a") as file_csv:
+        csv_writer = csv.writer(file_csv,delimiter = ";")
+        csv_writer.writerow(views + content + tags)
+
+    new_driver.quit()
+    time.sleep(15)
+"""
+#5
 for que in ques:
     new_driver = webdriver.Firefox(geckodriver)
     link = que.get_attribute("href")
