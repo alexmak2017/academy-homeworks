@@ -54,20 +54,28 @@ ques = driver.find_elements_by_class_name("question__title-link")
 
 #write to csv file:
 """
+file_csv = open("example.csv", "a", encoding='utf-8')
+csv_writer = csv.DictWriter(file_csv, fieldnames=["views", "content", "tags"], delimiter=",")
+csv_writer.writeheader()
+
 for que in ques:
+    
     new_driver = webdriver.Firefox(geckodriver)
     link = que.get_attribute("href")
     new_driver.get(link)
+    
     views = new_driver.find_element_by_class_name("question__views-count").text
     tags = new_driver.find_element_by_class_name("tags-list").text
     content = new_driver.find_element_by_class_name("question__text").text
 
-    with open("example.csv", "a") as file_csv:
-        csv_writer = csv.writer(file_csv,delimiter = ";")
-        csv_writer.writerow(views + content + tags)
+    csv_writer.writerow({"views": views,
+                         "content": content,
+                         "tags": tags})
 
     new_driver.quit()
     time.sleep(15)
+
+file_csv.close()
 """
 #5
 for que in ques:
